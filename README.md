@@ -1,6 +1,13 @@
 # LibertyEngine
 [![Build Status](https://travis-ci.org/librewiki/liberty-engine.svg?branch=master)](https://travis-ci.org/librewiki/liberty-engine)
 
+## What is Different Original LibertyEngine to This Repo?
+* It is a repository created to improve faster.
+For example, This repo is more Embedded video support services than Origin Repo.
+
+If you have any inconvenience, please write the issues. I will check your inconvenience.
+
+
 ## Table of Contents
 - [LibertyEngine](#libertyengine)
   - [Table of Contents](#table-of-contents)
