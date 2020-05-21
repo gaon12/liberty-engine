@@ -39,7 +39,7 @@ function soundcloudHook($item) {
 	  const id = $item.text();
 	  const width = Number($item.attr('width')) || 640;
 	  const height = Number($item.attr('height')) || 480;
-	  return `<iframe class="embed-video embed-video-soundcloud" width="${width}" height="${height}" src="//w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${id}" allowfullscreen frameborder="0" scrolling="no"> </iframe>`;
+	  return `<iframe class="embed-video embed-video-soundcloud" width="${width}" height="${height}" src="//w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F${id}&show_artwork=true" allowfullscreen frameborder="0" scrolling="no" allow="encrypted-media"> </iframe>`;
 }
 
 module.exports.import = (helper) => {
