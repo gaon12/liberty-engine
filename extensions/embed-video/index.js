@@ -21,6 +21,27 @@ function nicoHook($item) {
 	  return `<iframe class="embed-video embed-video-nico" width="${width}" height="${height}" src="//embed.nicovideo.jp/watch/${id}" allowfullscreen frameborder="0" scrolling="no"> </iframe>`;
 }
 
+function navertvHook($item) {
+	  const id = $item.text();
+	  const width = Number($item.attr('width')) || 640;
+	  const height = Number($item.attr('height')) || 480;
+	  return `<iframe class="embed-video embed-video-navertv" width="${width}" height="${height}" src="//tv.naver.com/embed/${id}?autoPlay=false&oNm=outKeyPlayer.nhn" allowfullscreen frameborder="0" scrolling="no" allow="encrypted-media"> </iframe>`;
+}
+
+function vimeoHook($item) {
+	  const id = $item.text();
+	  const width = Number($item.attr('width')) || 640;
+	  const height = Number($item.attr('height')) || 480;
+	  return `<iframe class="embed-video embed-video-vimeo" width="${width}" height="${height}" src="//player.vimeo.com/video/${id}" allowfullscreen frameborder="0" scrolling="no"> </iframe>`;
+}
+
+function soundcloudHook($item) {
+	  const id = $item.text();
+	  const width = Number($item.attr('width')) || 640;
+	  const height = Number($item.attr('height')) || 480;
+	  return `<iframe class="embed-video embed-video-soundcloud" width="${width}" height="${height}" src="//w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${id}" allowfullscreen frameborder="0" scrolling="no"> </iframe>`;
+}
+
 module.exports.import = (helper) => {
 	  helper.parserHook.setXmlHook({
 		      type: 'afterSanitize',
@@ -45,6 +66,36 @@ module.exports.import = (helper) => {
 		    selector: 'nico',
 		    hook: nicoHook,
 		    allowedTags: ['nico'],
+		    allowedAttributes: {
+			          nico: ['width', 'height'],
+			        },
+		  });
+
+	helper.parserHook.setXmlHook({
+		    type: 'afterSanitize',
+		    selector: 'navertv',
+		    hook: navertvHook,
+		    allowedTags: ['navertv'],
+		    allowedAttributes: {
+			          nico: ['width', 'height'],
+			        },
+		  });
+		
+		helper.parserHook.setXmlHook({
+		    type: 'afterSanitize',
+		    selector: 'vimeo',
+		    hook: vimeoHook,
+		    allowedTags: ['vimeo'],
+		    allowedAttributes: {
+			          nico: ['width', 'height'],
+			        },
+		  });
+		
+		helper.parserHook.setXmlHook({
+		    type: 'afterSanitize',
+		    selector: 'soundcloud',
+		    hook: soundcloudHook,
+		    allowedTags: ['soundcloud'],
 		    allowedAttributes: {
 			          nico: ['width', 'height'],
 			        },
